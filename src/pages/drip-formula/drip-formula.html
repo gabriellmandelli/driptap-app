@@ -7,4 +7,23 @@
 </ion-header>
 
 <ion-content>
+  <form [formGroup]="dripForm" (ngSubmit)="onSubmit()">
+    <ion-list>
+      <ion-item>
+        <ion-label fixed>Volume(ml):</ion-label>
+        <ion-input type="number" formControlName="volume"></ion-input>
+      </ion-item>
+    
+      <ion-item>
+        <ion-label fixed>Tempo(min):</ion-label>
+        <ion-input type="number" formControlName="tempo"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <button ion-button block large round type="submit">
+          Gts/min: {{qtdGotasPorMinuto}}
+        </button>
+      </ion-item>
+    </ion-list>
+  </form>
 </ion-content>

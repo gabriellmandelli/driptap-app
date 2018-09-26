@@ -1,9 +1,51 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>Timer de Frequencia</ion-title>
+    <ion-title>Confirmação de gotejamento</ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-card *ngIf="timer">
+        <ion-card-header lar>
+          <button ion-button *ngIf="timeInSeconds && timeInSeconds > 0" large block clear class="timer-button x-large">{{timer.displayTime}}</button>
+          <button ion-button *ngIf="!timeInSeconds || timeInSeconds == 0" large block clear class="timer-button">Timer set up incorrectly</button>
+        </ion-card-header>
+      </ion-card >
+    </ion-row>
+    <ion-card *ngIf="timer">
+      <ion-row>
+        <ion-item *ngIf="timeInSeconds && timeInSeconds > 0">
+          <button ion-button round large item-end class="large" (click)="pauseTimer()" *ngIf="timer.runTimer && timer.hasStarted && !timer.hasFinished">
+            <ion-icon name="pause"></ion-icon>
+          </button>
+
+          <button ion-button full large round class="large" (click)="startTimer()" *ngIf="!timer.hasStarted">
+            <ion-icon name="play"></ion-icon>
+          </button>
+
+          <button ion-button full large round class="large" (click)="addCountTapInTime()" *ngIf="timer.runTimer && timer.hasStarted && !timer.hasFinished" >
+            <ion-icon name="water"></ion-icon>
+          </button>
+          
+          <button ion-button full large round class="large" color="danger" (click)="initTimer()" *ngIf="!timer.runTimer && (timer.hasStarted || timer.hasFinished) || timer.hasFinished">
+              <ion-icon name="refresh"></ion-icon>
+          </button>
+          <!--
+          <button ion-button round class="large" (click)="resumeTimer()" item-end *ngIf="!timer.runTimer && timer.hasStarted && !timer.hasFinished">
+            <ion-icon name="play"> Resume </ion-icon>
+          </button>
+          -->
+        </ion-item>
+      </ion-row>
+      <ion-row>
+        <ion-item *ngIf="timeInSeconds && timeInSeconds > 0">
+          <button ion-button full large class="large">
+            {{timer.countTap}}
+          </button>
+        </ion-item>
+      </ion-row>
+    </ion-card>
+  </ion-grid>
 </ion-content>
