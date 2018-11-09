@@ -9,7 +9,7 @@ export interface CountdownTimer {
   hasStarted: boolean;
   runTimer: boolean;
   displayTime: string;
-}  
+} 
 
 @Component({
   selector: 'page-frequency-timer',

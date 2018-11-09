@@ -8,13 +8,11 @@
 
 -- npm install -g cordova ionic
 
--- git glone no projeto
+-- git clone no projeto
 
 -- npm install na pasta app-driptap
 
 -- depois executar npm install na pasta server
-
--- para rodar o servidor executar npm start na pasta server
 
 -- para rodar o app executar ionic serve na pasta app-driptap
 
