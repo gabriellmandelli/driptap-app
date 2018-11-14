@@ -9,20 +9,18 @@ import { FormGroup, FormControl } from '@angular/forms'
 export class DripFormula {
 
   dripForm : FormGroup;
-  private volume: number;
-  private tempo: number;
-  utilizaMacrogota: boolean;
-  public qtdGotasPorMinuto: number;
-
+  public qtdGotasPorMinuto : number;
+  
   constructor(public navCtrl: NavController) {
   }
 
   ngOnInit(){
     this.dripForm  = new FormGroup({
-      'volume': new FormControl(this.volume),
-      'tempo': new FormControl(this.tempo),
-      'utilizaMacrogota': new FormControl(this.utilizaMacrogota)
+      'volume': new FormControl(),
+      'tempo': new FormControl(),
+      'utilizaMicrogota': new FormControl(true)
     })
+    this.qtdGotasPorMinuto = 0;
   }
 
   onSubmit(){
@@ -30,16 +28,20 @@ export class DripFormula {
   }
 
   getDripFormula(){
-    let lbUtilizaMacrogota = this.dripForm.get("utilizaMacrogota").value
-    
-    let volume = this.dripForm.get("volume").value
-    let tempo = this.dripForm.get("tempo").value
+
+    let lbUtilizaMicrogota : Boolean = this.dripForm.get("utilizaMicrogota").value
+    let volume : number = this.dripForm.get("volume").value
+    let tempo : number = this.dripForm.get("tempo").value
+
     let lMicrogot = ( volume / (tempo * 3));
     
-    if (lbUtilizaMacrogota){
-      lMicrogot = lMicrogot * 3;
+    console.log('Tempo: ' + tempo + ' Volume: ' + volume +' Microgota: '+ lbUtilizaMicrogota)
+
+    if (lbUtilizaMicrogota){
+      lMicrogot = (lMicrogot * 3);
     }
 
     this.qtdGotasPorMinuto = Math.round(lMicrogot);
+    
   }
 }
