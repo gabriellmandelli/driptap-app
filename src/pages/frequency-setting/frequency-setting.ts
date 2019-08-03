@@ -9,49 +9,48 @@ import { FormGroup, FormControl } from '@angular/forms'
 
 export class FrequencySetting {
 
-  frequencySetting : FormGroup;
-  public qtdGotasPorMinuto : number;
+  frequencySetting: FormGroup;
+  public countDripsPerMinute: number;
 
-  timeFirstTap = 0 ;
-  timeSecondTap = 0;
 
-  timeInterval = 0;
 
-  public intervalVar;
-  public timer = 0;
+  lastTapTime = 0;
+  nextTapTime = 0;
+  intervalTime = 0;
 
   constructor(public navCtrl: NavController) {
-    
+
   }
 
-  ngOnInit(){
-    this.frequencySetting  = new FormGroup({
+  ngOnInit() {
+    this.frequencySetting = new FormGroup({
       'gotasPorMinuto': new FormControl()
     })
-    this.qtdGotasPorMinuto = 0;
-  }
-  
-  onSubmit(){
-    
-    if ((this.timeFirstTap == 0) || (this.timeSecondTap == 0)){
-      this.startTimer();
-    }
-
-    this.timeSecondTap = this.timeFirstTap
-    this.timeFirstTap = this.timer
-
-    console.log(this.timeSecondTap +"   "+ this.timeFirstTap)
-
-    if (this.timeFirstTap > this.timeSecondTap){
-      this.timeInterval = this.timeFirstTap - this.timeSecondTap;
-      this.qtdGotasPorMinuto = Math.round((this.timeInterval / 60));
-      console.log(this.timeInterval);
-    }
+    this.countDripsPerMinute = 0;
   }
 
-  startTimer(){
-    this.intervalVar = setInterval(function(){
-      this.timer++;
-    }.bind(this), 1)
+  clickOnButton() {
+
+    let timeNow = Date.now();
+
+    if ((this.lastTapTime > 0)) {
+
+      this.nextTapTime = timeNow;
+
+      this.intervalTime = this.nextTapTime - this.lastTapTime;
+
+      this.lastTapTime = this.nextTapTime;
+
+      this.countDripsPerMinute = Math.round((60000 / this.intervalTime))
+    }
+
+    if ((this.nextTapTime == 0) || (this.lastTapTime == 0)) {
+      this.lastTapTime = timeNow;
+    }
+
+  }
+
+  onSubmit() {
+    this.clickOnButton();
   }
 }
