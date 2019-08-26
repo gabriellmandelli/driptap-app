@@ -35,8 +35,6 @@ export class DripFormula {
 
     let lMicrogot = ( volume / (tempo * 3));
     
-    console.log('Tempo: ' + tempo + ' Volume: ' + volume +' Microgota: '+ lbUtilizaMicrogota)
-
     if (lbUtilizaMicrogota){
       lMicrogot = (lMicrogot * 3);
     }

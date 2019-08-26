@@ -12,8 +12,6 @@ export class FrequencySetting {
   frequencySetting: FormGroup;
   public countDripsPerMinute: number;
 
-
-
   lastTapTime = 0;
   nextTapTime = 0;
   intervalTime = 0;
@@ -29,8 +27,11 @@ export class FrequencySetting {
     this.countDripsPerMinute = 0;
   }
 
-  clickOnButton() {
+  onSubmit() {
+    this.clickOnButton();
+  }
 
+  clickOnButton() {
     let timeNow = Date.now();
 
     if ((this.lastTapTime > 0)) {
@@ -47,10 +48,5 @@ export class FrequencySetting {
     if ((this.nextTapTime == 0) || (this.lastTapTime == 0)) {
       this.lastTapTime = timeNow;
     }
-
-  }
-
-  onSubmit() {
-    this.clickOnButton();
   }
 }

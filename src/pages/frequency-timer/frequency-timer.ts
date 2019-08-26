@@ -76,7 +76,6 @@ export class FrequencyTimer {
       if (this.timer.secondsRemaining > 0) {
         this.timerTick();
       } else {
-        console.log("Quantidade de Gotas: " + this.timer.countTap)
         this.timer.hasFinished = true;
       }
 
@@ -96,6 +95,7 @@ export class FrequencyTimer {
     hoursString = (hours < 10) ? '0' + hours : hours.toString();
     minutesString = (minutes < 10) ? '0' + minutes : minutes.toString();
     secondsString = (seconds < 10) ? '0' + seconds : seconds.toString();
+
     return hoursString + ':' + minutesString + ':' + secondsString;
   }
 }

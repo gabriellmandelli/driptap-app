@@ -32,11 +32,6 @@
           <button ion-button full large round class="large" color="danger" (click)="initTimer()" *ngIf="!timer.runTimer && (timer.hasStarted || timer.hasFinished) || timer.hasFinished">
               <ion-icon name="refresh"></ion-icon>
           </button>
-          <!--
-          <button ion-button round class="large" (click)="resumeTimer()" item-end *ngIf="!timer.runTimer && timer.hasStarted && !timer.hasFinished">
-            <ion-icon name="play"> Resume </ion-icon>
-          </button>
-          -->
         </ion-item>
       </ion-row>
       <ion-row>
