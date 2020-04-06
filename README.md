@@ -1,21 +1,37 @@
-# app-driptap
+app-driptap
+===========
+About this app
+---------------
+This app is just for help nurse to apply the correct amount of serum for a period time.
 
--- Baixar https://nodejs.org/en/ latest features
+Requirements
+------------
+* Node 10+
+* Npm 6+
+* Ionic 4+
 
--- Executar no cmd npm install -g cordova ionic
+```
+install https://nodejs.org/en/
+npm install -g cordova ionic
+````
 
--- npm é instalado junto ao nodejs
+Preparing
+---------
+```
+git clone https://github.com/gabriellmandelli/driptap-app.git
+cd driptap-app
+npm install
+```
 
--- npm install -g cordova ionic
+Building
+--------
+```
+ionic build
+```
 
--- git clone no projeto
-
--- npm install na pasta app-driptap
-
--- depois executar npm install na pasta server
-
--- para rodar o app executar ionic serve na pasta app-driptap
-
--- para rodar o app no celular executar ionic cordova run android na pasta app-driptap
-
-ionic cordova run android --prod -c
+Running App
+-----------
+```
+ionic serve // To run in your browser
+ionic cordova run android --prod -c // To run on your android device
+```
