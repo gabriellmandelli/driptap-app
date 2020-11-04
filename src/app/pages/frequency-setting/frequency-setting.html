@@ -1,13 +1,13 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>Ajuste de Frequência</ion-title>
+    <ion-title>Ajustar </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content>
-  <form class="grande" [formGroup]="frequencySetting" (ngSubmit)="onSubmit()">
-    <button ion-button class="grande" large type="submit">
-      <h1>{{countDripsPerMinute}}</h1>
+  <form class="bigbutton" [formGroup]="frequencySetting" (ngSubmit)="onSubmit()">
+    <button ion-button class="bigbutton" large type="submit">
+      <h1>{{countDripsPerMinute}} gotas por minuto</h1>
     </button>
   </form>
 </ion-content>

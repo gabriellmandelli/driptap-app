@@ -36,3 +36,10 @@ ionic serve // To run in your browser
 ionic cordova run android --prod -c // To run on your android device
 ionic capacitor run android // To run on your android device
 ```
+
+@driptap
+
+Deploy
+com.greentower.app.driptap
+
+ionic build -release

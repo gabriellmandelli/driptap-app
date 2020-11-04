@@ -36,9 +36,11 @@
       </ion-row>
       <ion-row>
         <ion-item *ngIf="timeInSeconds && timeInSeconds > 0">
-          <button ion-button full large class="large">
+          <ion-card-header>Quantidade de gotas por minuto:
+            <button ion-button full large class="large">
             {{timer.countTap}}
-          </button>
+            </button>
+          </ion-card-header>
         </ion-item>
       </ion-row>
     </ion-card>

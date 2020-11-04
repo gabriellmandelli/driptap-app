@@ -10,10 +10,10 @@ import { ContactPage } from '../contact/contact';
 })
 export class TabsPage {
 
-  tab1FrequencySetting = FrequencySetting;
-  tab2FrequencyTimer = FrequencyTimer;
-  tab3DripFormula = DripFormula;
-  tab4Contacts = ContactPage;
+  DripFormula = DripFormula;
+  FrequencySetting = FrequencySetting;
+  FrequencyTimer = FrequencyTimer;
+  Contacts = ContactPage;
 
   constructor() {
   

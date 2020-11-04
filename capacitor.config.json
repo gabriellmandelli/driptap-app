@@ -1,9 +1,10 @@
 {
-  "appId": "io.ionic.starter",
+  "appId": "com.greentower.app.driptap",
   "appName": "app-driptap",
   "bundledWebRuntime": false,
   "npmClient": "yarn",
   "webDir": "www",
+  "linuxAndroidStudioPath": "/snap/android-studio/94/android-studio/bin/studio.sh",
   "cordova": {
     "preferences": {
       "ScrollEnabled": "false",
